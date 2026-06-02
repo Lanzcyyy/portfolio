@@ -27,6 +27,39 @@ If you have an existing logo, color palette, or examples you like, attach them a
 
 ---
 
+## Vite Setup
+
+This repo now runs as a small Vite app, which makes Supabase env vars easy to use in the browser.
+
+### Local dev
+
+1. Install dependencies with `npm install`.
+2. Create a file named `.env.local` in the project root.
+3. Add these values:
+
+```env
+VITE_SUPABASE_URL=https://wfigweigvvtfytafiudy.supabase.co
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_or_publishable_key
+```
+
+4. Start the app with `npm run dev`.
+
+### Supabase table
+
+The contact form expects a table named `messages` with at least these columns:
+
+- `name` text
+- `email` text
+- `message` text
+
+### Vercel
+
+Add the same `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` values in Vercel Project Settings under Environment Variables.
+
+Use `npm run build` for the production build command.
+
+---
+
 ## Content Fundamentals
 
 How the brand writes.

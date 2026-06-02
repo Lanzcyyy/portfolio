@@ -1,8 +1,13 @@
-/* ==========================================================================
-   Maren Ito — Portfolio
-   Vanilla JS interactions: project list, smooth scroll, nav highlight,
-   reveal-on-scroll, cursor follower, contact form, live clock.
-   ========================================================================== */
+/* ========================================================================== 
+  Maren Ito — Portfolio
+  Vite app with Supabase-ready env vars.
+  ========================================================================== */
+
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
 /* ---------------- Project data (edit this) -------------------------------- */
 const PROJECTS = [
@@ -108,21 +113,42 @@ const PROJECTS = [
   const form = document.getElementById("contact-form");
   const btn = document.getElementById("submit-btn");
   if (!form || !btn) return;
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
     if (!data.name || !data.email || !data.message) return;
 
-    // NOTE — wire this up to Formspree / Resend / your own endpoint for production.
-    console.log("Form submitted →", data);
+    const label = btn.querySelector(".btn__label");
 
-    btn.classList.add("is-sent");
-    btn.querySelector(".btn__label").textContent = "Sent — thank you";
-    form.reset();
-    setTimeout(() => {
-      btn.classList.remove("is-sent");
-      btn.querySelector(".btn__label").textContent = "Send message";
-    }, 4000);
+    try {
+      if (supabase) {
+        const { error } = await supabase.from("messages").insert([
+          {
+            name: data.name,
+            email: data.email,
+            message: data.message,
+          },
+        ]);
+
+        if (error) throw error;
+      } else {
+        console.log("Form submitted →", data);
+      }
+
+      btn.classList.add("is-sent");
+      label.textContent = "Sent — thank you";
+      form.reset();
+      setTimeout(() => {
+        btn.classList.remove("is-sent");
+        label.textContent = "Send message";
+      }, 4000);
+    } catch (error) {
+      console.error("Supabase submit failed:", error);
+      label.textContent = "Try again";
+      setTimeout(() => {
+        label.textContent = "Send message";
+      }, 2500);
+    }
   });
 })();
 
