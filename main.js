@@ -4,10 +4,14 @@
   ========================================================================== */
 
 import { createClient } from "@supabase/supabase-js";
+import { inject } from "@vercel/analytics";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+
+/* ---------------- Initialize Vercel Analytics ----------------------------- */
+inject();
 
 /* ---------------- Project data (edit this) -------------------------------- */
 const PROJECTS = [
