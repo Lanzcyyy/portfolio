@@ -50,13 +50,24 @@ The contact form expects a table named `messages` with at least these columns:
 
 - `name` text
 - `email` text
-- `message` text
+- `messages` text
+
+The form also reads back the inserted row, so you can confirm the saved record in the browser console and in the Supabase table view.
+
+Create the table with the SQL file in `supabase/schema.sql`.
 
 ### Vercel
 
 Add the same `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` values in Vercel Project Settings under Environment Variables.
 
 Use `npm run build` for the production build command.
+
+### After a submission
+
+1. Open Supabase Dashboard.
+2. Go to Table Editor.
+3. Open `messages`.
+4. You should see new rows with the contact info.
 
 ---
 

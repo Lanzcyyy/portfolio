@@ -122,15 +122,20 @@ const PROJECTS = [
 
     try {
       if (supabase) {
-        const { error } = await supabase.from("messages").insert([
+        const { data: savedMessage, error } = await supabase
+          .from("messages")
+          .insert([
           {
             name: data.name,
             email: data.email,
-            message: data.message,
+            messages: data.message,
           },
-        ]);
+          ])
+          .select("id, name, email, messages, created_at")
+          .single();
 
         if (error) throw error;
+        console.log("Saved to Supabase →", savedMessage);
       } else {
         console.log("Form submitted →", data);
       }
