@@ -1,0 +1,38 @@
+<!-- @dsCard group="Spacing" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"></head>
+<body>
+<div class="card" style="padding: 24px 32px;">
+  <div class="label" style="margin-bottom: 14px;">Motion — ease-out, gentle · no bounce</div>
+  <style>
+    @keyframes drift {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(80px); }
+    }
+    .puck {
+      width: 20px; height: 20px; background: var(--azure-500); border-radius: 999px;
+      animation: drift 1800ms infinite alternate;
+    }
+    .p1 { animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
+    .p2 { animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+    .p3 { animation-timing-function: linear; }
+  </style>
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <span class="token-name" style="width: 80px;">--ease</span>
+      <div style="width: 120px;"><div class="puck p1"></div></div>
+      <span class="token-value">cubic-bezier(0.22, 0.61, 0.36, 1) · default UI</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <span class="token-name" style="width: 80px;">--ease-out</span>
+      <div style="width: 120px;"><div class="puck p2"></div></div>
+      <span class="token-value">cubic-bezier(0.16, 1, 0.3, 1) · entrances</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <span class="token-value" style="width: 80px;">160 / 280 / 600 / 1200 ms</span>
+      <div style="width: 120px;"></div>
+      <span class="token-value">fast / base / slow / vslow</span>
+    </div>
+  </div>
+</div>
+</body></html>

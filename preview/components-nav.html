@@ -1,0 +1,37 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"></head>
+<body>
+<style>
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 32px; background: rgba(248, 244, 236, 0.7); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-brand { font-family: var(--font-body); font-weight: 500; font-size: 20px; line-height: 1; color: var(--ink-1); letter-spacing: -0.04em; display: inline-flex; align-items: baseline; gap: 2px; }
+  .nav-brand-dot { width: 4px; height: 4px; background: var(--azure-500); border-radius: 999px; display: inline-block; transform: translateY(-2px); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-link {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-2); text-decoration: none;
+  }
+  .nav-link.active { color: var(--azure-500); }
+  .nav-link:hover { color: var(--azure-500); }
+  .nav-cta {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #FFFFFF; background: var(--ink-1); padding: 9px 16px; border-radius: 999px; text-decoration: none;
+  }
+</style>
+<div style="padding: 14px;">
+  <div class="nav">
+    <span class="nav-brand">M<span class="nav-brand-dot"></span></span>
+    <div class="nav-links">
+      <a class="nav-link active" href="#">Index</a>
+      <a class="nav-link" href="#">Work</a>
+      <a class="nav-link" href="#">About</a>
+      <a class="nav-link" href="#">Journal</a>
+    </div>
+    <a class="nav-cta" href="#">Get in touch  →</a>
+  </div>
+</div>
+</body></html>

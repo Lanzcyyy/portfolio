@@ -1,0 +1,29 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"></head>
+<body>
+<style>
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 999px;
+  }
+  .pill.dot::before {
+    content: ''; width: 6px; height: 6px; border-radius: 999px; background: currentColor;
+  }
+  .p-status { background: var(--azure-50); color: var(--azure-600); }
+  .p-meta   { background: var(--paper-2); color: var(--ink-2); }
+  .p-tag    { border: 1px solid var(--border-strong); color: var(--ink-2); }
+  .p-on     { background: var(--ink-1); color: #FFFFFF; }
+</style>
+<div class="card" style="padding: 24px 32px;">
+  <div class="label" style="margin-bottom: 14px;">Pills + tags</div>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+    <span class="pill p-status dot">Available for work</span>
+    <span class="pill p-meta">2024 — present</span>
+    <span class="pill p-tag">Brand identity</span>
+    <span class="pill p-tag">Product design</span>
+    <span class="pill p-on">Selected</span>
+  </div>
+</div>
+</body></html>

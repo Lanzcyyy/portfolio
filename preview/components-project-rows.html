@@ -1,0 +1,33 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"></head>
+<body>
+<style>
+  .row-proj {
+    display: grid; grid-template-columns: 60px 1fr 140px 100px; gap: 24px;
+    align-items: baseline; padding: 18px 0; border-top: 1px solid var(--rule);
+    transition: color 280ms var(--ease);
+  }
+  .row-proj:last-child { border-bottom: 1px solid var(--rule); }
+  .row-proj:hover { color: var(--azure-500); }
+  .idx { font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.08em; }
+  .name { font-family: var(--font-body); font-weight: 300; font-size: 28px; line-height: 1.1; color: inherit; letter-spacing: -0.025em; }
+  .name em { font-style: normal; font-weight: 500; color: inherit; }
+  .cat { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+  .yr { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); text-align: right; }
+</style>
+<div class="card" style="padding: 16px 32px;">
+  <div class="row-proj">
+    <span class="idx">001</span>
+    <span class="name">Studio Mira — <em>brand</em></span>
+    <span class="cat">Identity</span>
+    <span class="yr">2024</span>
+  </div>
+  <div class="row-proj">
+    <span class="idx">002</span>
+    <span class="name">Field Notes app</span>
+    <span class="cat">Product</span>
+    <span class="yr">2023</span>
+  </div>
+</div>
+</body></html>

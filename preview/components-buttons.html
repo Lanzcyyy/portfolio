@@ -1,0 +1,28 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"></head>
+<body>
+<style>
+  .btn {
+    font-family: var(--font-body); font-size: 14px; font-weight: 500;
+    padding: 12px 22px; border-radius: 999px; border: 0; cursor: pointer;
+    transition: all 180ms var(--ease);
+  }
+  .btn-primary { background: var(--azure-500); color: #FFFFFF; }
+  .btn-primary:hover { background: var(--azure-600); }
+  .btn-secondary { background: transparent; color: var(--ink-1); border: 1px solid var(--ink-1); }
+  .btn-secondary:hover { background: var(--ink-1); color: #FFFFFF; }
+  .btn-ghost { background: transparent; color: var(--ink-2); padding-left: 4px; padding-right: 4px; border-radius: 0; }
+  .btn-ghost:hover { color: var(--azure-500); }
+  .btn-text-arrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+</style>
+<div class="card" style="padding: 24px 32px;">
+  <div class="label" style="margin-bottom: 14px;">Buttons</div>
+  <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+    <button class="btn btn-primary">Get in touch</button>
+    <button class="btn btn-secondary">View case study</button>
+    <button class="btn btn-ghost btn-text-arrow">Read more  →</button>
+  </div>
+  <div class="token-value" style="margin-top: 14px;">primary · secondary outline · ghost text-arrow · all pill or sharp</div>
+</div>
+</body></html>
