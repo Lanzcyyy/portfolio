@@ -6,10 +6,10 @@
 
 /* ---------------- Project data (edit this) -------------------------------- */
 const PROJECTS = [
-  { name: "Studio Mira",       emph: "brand", cat: "Identity",  year: "2024", href: "#" },
-  { name: "Field Notes",                       cat: "Product",   year: "2023", href: "#" },
-  { name: "Ground Coffee Co.",                 cat: "Packaging", year: "2023", href: "#" },
-  { name: "Northwind",         emph: "site",  cat: "Web",       year: "2022", href: "#" },
+  { name: "Lorem ipsum",       emph: "brand", cat: "Identity",  year: "2024", href: "#" },
+  { name: "Lorem ipsum",                       cat: "Product",   year: "2023", href: "#" },
+  { name: "Lorem ipsum",                 cat: "Packaging", year: "2023", href: "#" },
+  { name: "Lorem ipsum",         emph: "site",  cat: "Web",       year: "2022", href: "#" },
 ];
 
 /* ---------------- Render project list ------------------------------------- */
