@@ -112,6 +112,10 @@ const PROJECTS = [
 (function contactForm() {
   const form = document.getElementById("contact-form");
   const btn = document.getElementById("submit-btn");
+  const formStatus = document.createElement("p");
+  formStatus.className = "contact-form__status meta-mono";
+  formStatus.setAttribute("aria-live", "polite");
+  form.after(formStatus);
   if (!form || !btn) return;
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -119,25 +123,24 @@ const PROJECTS = [
     if (!data.name || !data.email || !data.message) return;
 
     const label = btn.querySelector(".btn__label");
+    formStatus.textContent = "Sending…";
 
     try {
       if (supabase) {
-        const { data: savedMessage, error } = await supabase
-          .from("messages")
-          .insert([
+        const { error } = await supabase.from("messages").insert([
           {
             name: data.name,
             email: data.email,
             messages: data.message,
           },
-          ])
-          .select("id, name, email, messages, created_at")
-          .single();
+        ]);
 
         if (error) throw error;
-        console.log("Saved to Supabase →", savedMessage);
+        console.log("Saved to Supabase →", data);
+        formStatus.textContent = "Saved to Supabase.";
       } else {
         console.log("Form submitted →", data);
+        formStatus.textContent = "Supabase env vars are missing, so this only logged locally.";
       }
 
       btn.classList.add("is-sent");
@@ -149,6 +152,7 @@ const PROJECTS = [
       }, 4000);
     } catch (error) {
       console.error("Supabase submit failed:", error);
+      formStatus.textContent = `Supabase error: ${error?.message || "unknown error"}`;
       label.textContent = "Try again";
       setTimeout(() => {
         label.textContent = "Send message";
